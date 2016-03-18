@@ -1,0 +1,44 @@
+{
+  "name": "hapi-file-uploader",
+  "version": "0.1.0",
+  "description": "Hapi plugin allowing easy and configurable file uploads",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard --verbose | snazzy"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JGAntunes/hapi-file-uploader.git"
+  },
+  "keywords": [
+    "hapi",
+    "js",
+    "file",
+    "upload"
+  ],
+  "author": "João Antunes <info@joaoantunes.me> (https://github.com/JGAntunes)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JGAntunes/hapi-file-uploader/issues"
+  },
+  "homepage": "https://github.com/JGAntunes/hapi-file-uploader#readme",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "devDependencies": {
+    "pre-commit": "^1.1.2",
+    "snazzy": "^3.0.0",
+    "standard": "^6.0.8"
+  },
+  "dependencies": {
+    "async": "^1.5.2",
+    "boom": "^3.1.2",
+    "joi": "^8.0.4",
+    "mime": "^1.3.4",
+    "urlencode": "^1.1.0"
+  }
+}
