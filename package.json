@@ -4,7 +4,8 @@
   "description": "Hapi plugin allowing easy and configurable file uploads",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/lab/bin/lab --verbose",
+    "test-cov": "./node_modules/lab/bin/lab --verbose -c",
     "lint": "standard --verbose | snazzy"
   },
   "pre-commit": [
@@ -30,7 +31,9 @@
     "node": ">=4.0.0"
   },
   "devDependencies": {
+    "code": "^2.1.1",
     "hapi": "^13.2.1",
+    "lab": "^10.3.0",
     "pre-commit": "^1.1.2",
     "snazzy": "^3.0.0",
     "standard": "^6.0.8"
