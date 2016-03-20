@@ -30,6 +30,7 @@
     "node": ">=4.0.0"
   },
   "devDependencies": {
+    "hapi": "^13.2.1",
     "pre-commit": "^1.1.2",
     "snazzy": "^3.0.0",
     "standard": "^6.0.8"

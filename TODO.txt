@@ -1,0 +1,12 @@
+I* upload imagens achievements
+I* achievements list page
+I* livestream page
+* e-mail sent to spam
+* cross border ict stupid participation
+* partners link
+* create achievements
+* give curriculum achievements to those who already uploaded it
+* print achievements
+* check images of users like //graph stuff
+* check logins, issues with google login specially
+* 	
