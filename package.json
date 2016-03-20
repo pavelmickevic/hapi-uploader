@@ -1,5 +1,5 @@
 {
-  "name": "hapi-file-uploader",
+  "name": "hapi-uploader",
   "version": "0.1.0",
   "description": "Hapi plugin allowing easy and configurable file uploads",
   "main": "index.js",
@@ -13,20 +13,22 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JGAntunes/hapi-file-uploader.git"
+    "url": "git+https://github.com/JGAntunes/hapi-uploader.git"
   },
   "keywords": [
     "hapi",
     "js",
     "file",
-    "upload"
+    "upload",
+    "uploader",
+    "route"
   ],
   "author": "João Antunes <info@joaoantunes.me> (https://github.com/JGAntunes)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JGAntunes/hapi-file-uploader/issues"
+    "url": "https://github.com/JGAntunes/hapi-uploader/issues"
   },
-  "homepage": "https://github.com/JGAntunes/hapi-file-uploader#readme",
+  "homepage": "https://github.com/JGAntunes/hapi-uploader#readme",
   "engines": {
     "node": ">=4.0.0"
   },

@@ -1,5 +1,8 @@
-# hapi-file-uploader
+# hapi-uploader
 Hapi plugin allowing easy and configurable file uploads
+
+[![Build Status](https://travis-ci.org/jgantunes/hapi-uploader.svg?branch=master)](https://travis-ci.org/jgantunes/hapi-uploader)
+[![npm version](https://img.shields.io/npm/v/hapi-uploader.svg)](https://www.npmjs.com/package/hapi-uploader)
 
 # Introduction
 
