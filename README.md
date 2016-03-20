@@ -19,7 +19,7 @@ const server = new Hapi.Server()
 server.connection({ port: 8080 })
 
 server.register({
-  register: require('hapi-file-uploader'),
+  register: require('hapi-uploader'),
   options: {
     upload: {path: './'}
   }
