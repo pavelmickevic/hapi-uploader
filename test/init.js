@@ -324,4 +324,28 @@ lab.experiment('Plugin - init', () => {
       done()
     })
   })
+
+  lab.test('Valid pre method functions', (done) => {
+    const options = {
+      upload: {
+        path: './',
+        generateName: (filename, request) => filename
+      },
+      preUpload: (request, reply) => reply(),
+      postUpload: (request, reply) => reply()
+    }
+    mockServer.route = function (route) {
+      Code.expect(route.config.pre).to.be.instanceof(Array)
+      Code.expect(route.config.pre).to.have.length(4)
+      Code.expect(route.config.pre[0].assign).to.be.equal('fileNames')
+      Code.expect(route.config.pre[1].assign).to.be.equal('preUpload')
+      Code.expect(route.config.pre[2].assign).to.be.equal('file')
+      Code.expect(route.config.pre[3].assign).to.be.equal('postUpload')
+    }
+
+    Plugin(mockServer, options, (err) => {
+      Code.expect(err).to.not.exist()
+      done()
+    })
+  })
 })
