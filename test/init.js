@@ -201,4 +201,84 @@ lab.experiment('Plugin - init', () => {
       done()
     })
   })
+
+  lab.test('MimeTypes must be an array', (done) => {
+    const options = {
+      upload: {
+        path: './',
+        maxBytes: 100
+      },
+      route: {
+        path: '/files/{id}',
+        tags: ['mock', 'upload'],
+        auth: 'mock-strategy',
+        validate: {
+          mimeTypes: 'invalid-mimes'
+        }
+      }
+    }
+    Plugin(mockServer, options, (err) => {
+      Code.expect(err).to.be.instanceof(Error)
+      Code.expect(err.message).to.be.equal(
+        'MimeTypes provided to validation must be an array.'
+      )
+      done()
+    })
+  })
+
+  lab.test('Extensions must be an array', (done) => {
+    const options = {
+      upload: {
+        path: './',
+        maxBytes: 100
+      },
+      route: {
+        path: '/files/{id}',
+        tags: ['mock', 'upload'],
+        auth: 'mock-strategy',
+        validate: {
+          extensions: 'invalid-extensions'
+        }
+      }
+    }
+    Plugin(mockServer, options, (err) => {
+      Code.expect(err).to.be.instanceof(Error)
+      Code.expect(err.message).to.be.equal(
+        'Extensions provided to validation must be an array.'
+      )
+      done()
+    })
+  })
+
+  lab.test('Invalid pre upload function', (done) => {
+    const options = {
+      upload: {
+        path: './'
+      },
+      preUpload: 'invalid'
+    }
+    Plugin(mockServer, options, (err) => {
+      Code.expect(err).to.be.instanceof(Error)
+      Code.expect(err.message).to.be.equal(
+        'Pre upload must be a function'
+      )
+      done()
+    })
+  })
+
+  lab.test('Invalid post upload function', (done) => {
+    const options = {
+      upload: {
+        path: './'
+      },
+      postUpload: 'invalid'
+    }
+    Plugin(mockServer, options, (err) => {
+      Code.expect(err).to.be.instanceof(Error)
+      Code.expect(err.message).to.be.equal(
+        'Post upload must be a function'
+      )
+      done()
+    })
+  })
 })
