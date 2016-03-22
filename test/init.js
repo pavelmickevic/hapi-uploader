@@ -29,6 +29,14 @@ lab.experiment('Plugin - init', () => {
     })
   })
 
+  lab.test('Null options', (done) => {
+    Plugin(mockServer, null, (err) => {
+      Code.expect(err).to.be.instanceof(Error)
+      Code.expect(err.message).to.be.equal('Must define a path to upload files')
+      done()
+    })
+  })
+
   lab.test('Invalid upload path', (done) => {
     Plugin(mockServer, {upload: {path: './invalid/path'}}, (err) => {
       Code.expect(err).to.be.instanceof(Error)
@@ -278,6 +286,41 @@ lab.experiment('Plugin - init', () => {
       Code.expect(err.message).to.be.equal(
         'Post upload must be a function'
       )
+      done()
+    })
+  })
+
+  lab.test('Invalid generate name function', (done) => {
+    const options = {
+      upload: {
+        path: './',
+        generateName: 'invalid'
+      }
+    }
+    Plugin(mockServer, options, (err) => {
+      Code.expect(err).to.be.instanceof(Error)
+      Code.expect(err.message).to.be.equal(
+        'Generate name must be a function'
+      )
+      done()
+    })
+  })
+
+  lab.test('Valid generate name function', (done) => {
+    const options = {
+      upload: {
+        path: './',
+        generateName: (filename, request) => filename
+      }
+    }
+    mockServer.route = function (route) {
+      Code.expect(route.config.pre).to.be.instanceof(Array)
+      Code.expect(route.config.pre).to.have.length(2)
+      Code.expect(route.config.pre[0].assign).to.be.equal('fileNames')
+    }
+
+    Plugin(mockServer, options, (err) => {
+      Code.expect(err).to.not.exist()
       done()
     })
   })
